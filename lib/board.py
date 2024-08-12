@@ -13,13 +13,20 @@ class Board:
             print("  -------------")
 
     def update_board(self, position, symbol):
-        row, col = self.convert_position(position)
-        if self.is_valid_move(row, col):
+        if self.is_valid_move(position):
+            row, col = self.convert_position(position)
             self.grid[row][col] = symbol
             return True
         return False
 
-    def is_valid_move(self, row, col):
+    def is_valid_move(self, position):
+        valid_inputs = ['a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3']
+        
+        if position not in valid_inputs:
+            return False
+
+        row, col = self.convert_position(position)
+
         return self.grid[row][col] == ' '
 
     def is_full(self):

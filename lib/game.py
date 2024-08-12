@@ -16,25 +16,24 @@ class Game:
 
     def play_game(self):
         self.display.show_welcome_message()
-        self.board.display_board()
 
-        # while self.game_is_active:
-        #     self.board.display_board()
-        #     move = self.display.get_move(self.current_player)
+        while self.game_is_active:
+            self.board.display_board()
+            move = self.display.get_move(self.current_player)
             
-        #     if self.board.update_board(move, self.current_player.get_symbol()):
-        #         if self.detector.check_winner(self.current_player.get_symbol()):
-        #             self.board.display_board()
-        #             self.display.show_winner(self.current_player)
-        #             self.game_is_active = False
-        #         elif self.detector.check_draw():
-        #             self.board.display_board()
-        #             self.display.show_draw()
-        #             self.game_is_active = False
-        #         else:
-        #             self.switch_player()
-        #     else:
-        #         self.display.show_invalid_move_message()
+            if self.board.update_board(move, self.current_player.get_symbol()):
+                if self.detector.check_winner(self.current_player.get_symbol()):
+                    self.board.display_board()
+                    self.display.show_winner(self.current_player)
+                    self.game_is_active = False
+                elif self.detector.check_draw():
+                    self.board.display_board()
+                    self.display.show_draw()
+                    self.game_is_active = False
+                else:
+                    self.switch_player()
+            else:
+                self.display.show_invalid_move_message()
 
         # if self.display.ask_replay():
         #     self.reset_game()
