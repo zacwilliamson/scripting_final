@@ -15,8 +15,8 @@ class Game:
         self.game_is_active = True
 
     def play_game(self):
-        print("Ready to play!")
-        # self.display.show_welcome_message()
+        self.display.show_welcome_message()
+        self.board.display_board()
 
         # while self.game_is_active:
         #     self.board.display_board()

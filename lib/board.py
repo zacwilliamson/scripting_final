@@ -5,9 +5,12 @@ class Board:
         self.rows = ['1', '2', '3']
 
     def display_board(self):
-        print("  a b c")
+        print("   a   b   c")
+        print("  -------------")
         for i, row in enumerate(self.grid):
-            print(f"{self.rows[i]} {' '.join(row)}")
+            row_display = f"{self.rows[i]} | {' | '.join(row)} |"
+            print(row_display)
+            print("  -------------")
 
     def update_board(self, position, symbol):
         row, col = self.convert_position(position)
