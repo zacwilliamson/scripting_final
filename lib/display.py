@@ -13,9 +13,11 @@ class Display:
 
     def show_winner(self, player):
         print(f"Congratulations {player.get_name()}! You win!")
+        input("Press ENTER to continue...")
 
     def show_draw(self):
         print("It's a draw!")
+        input("Press ENTER to continue...")
 
     def ask_replay(self):
         return input("Do you want to play again? (yes/no): ").lower().startswith('y')

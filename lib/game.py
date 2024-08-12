@@ -2,6 +2,8 @@ from lib.board import Board
 from lib.player import Player
 from lib.detector import Detector
 from lib.display import Display
+import os
+import sys
 
 class Game:
     def __init__(self):
@@ -27,6 +29,7 @@ class Game:
         self.prompt_replay()
 
     def play_turn(self):
+        self.clear_screen()
         self.board.display_board()
         move = self.display.get_move(self.current_player)
         
@@ -53,6 +56,7 @@ class Game:
         self.current_player = self.player2 if self.current_player == self.player1 else self.player1
 
     def end_game(self, winner=False, draw=False):
+        self.clear_screen()
         self.board.display_board()
         if winner:
             self.display.show_winner(self.current_player)
@@ -61,12 +65,19 @@ class Game:
         self.game_is_active = False
 
     def prompt_replay(self):
+        self.clear_screen()
         if self.display.ask_replay():
             self.reset_game()
             self.play_game()
 
     def reset_game(self):
         self.initialize_game()
+
+    def clear_screen(self):
+        if os.name == 'nt':
+            os.system('cls')
+        else:
+            os.system('clear')
 
 if __name__ == "__main__":
     game = Game()

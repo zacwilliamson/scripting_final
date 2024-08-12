@@ -1,7 +1,9 @@
 print("Starting the game...")
 
-from lib.game import Game  # Import the Game class from the lib folder
+from lib.game import Game
 
 if __name__ == "__main__":
-    game = Game()  # Create an instance of the Game class
-    game.play_game()  # Start the game
+    game = Game()
+    game.play_game()
+    
+#  python3 main.py
