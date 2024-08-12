@@ -35,9 +35,9 @@ class Game:
             else:
                 self.display.show_invalid_move_message()
 
-        # if self.display.ask_replay():
-        #     self.reset_game()
-        #     self.play_game()
+        if self.display.ask_replay():
+            self.reset_game()
+            self.play_game()
 
     def switch_player(self):
         self.current_player = self.player2 if self.current_player == self.player1 else self.player1
