@@ -73,4 +73,20 @@ class Game:
             self.display.show_draw()  # Show the draw message
         self.game_is_active = False  # Set the game state to inactive
 
-    def prompt_r
+    def prompt_replay(self):
+        """Prompt the player to see if they want to replay the game."""
+        self.clear_screen()  # Clear the screen before asking for replay
+        if self.display.ask_replay():
+            self.reset_game()  # Reset the game state for a new game
+            self.play_game()  # Start a new game
+
+    def reset_game(self):
+        """Reset the game state, reinitializing all components."""
+        self.initialize_game()
+
+    def clear_screen(self):
+        """Clear the terminal screen based on the operating system."""
+        if os.name == 'nt':  # For Windows systems
+            os.system('cls')
+        else:  # For macOS and Linux systems
+            os.system('clear')

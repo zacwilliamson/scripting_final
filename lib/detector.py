@@ -31,3 +31,10 @@ class Detector:
         """Check the two diagonals to see if the current player has won."""
         # Check the diagonal from top-left to bottom-right
         if all([self.board.grid[i][i] == symbol for i in range(3)]):
+            return True
+        
+        # Check the diagonal from top-right to bottom-left
+        if all([self.board.grid[i][2-i] == symbol for i in range(3)]):
+            return True
+        
+        return False
